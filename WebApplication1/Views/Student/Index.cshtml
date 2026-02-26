@@ -1,4 +1,5 @@
-﻿@model List<Student>
+﻿@using WebApplication1.ViewModels
+@model List<StudentViewModel>
 
 
 <h2>Student List</h2>
@@ -6,7 +7,6 @@
 <table>
     <thead>
         <tr>
-            <th>Id</th>
             <th>Name</th>
             <th>Age</th>
         </tr>
@@ -15,7 +15,7 @@
         @foreach (var student in Model)
         {
             <tr>
-                <td>@student.Id</td> @*  here @ is razor syntax to help write c# code in HTML code *@
+                @*  here @ is razor syntax to help write c# code in HTML code *@
                 <td>@student.Name</td>
                 <td>@student.Age</td>
             </tr>

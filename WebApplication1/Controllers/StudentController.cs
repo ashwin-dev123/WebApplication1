@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
@@ -18,8 +19,17 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            List<StudentViewModel> studentViewModels = new List<StudentViewModel>(); // creating a view model 
+            foreach (var student in students)
+            {
+                studentViewModels.Add(new StudentViewModel
+                {
+                    Name = student.Name,
+                    Age = student.Age
+                });
+            }
 
-            return View(students);
+            return View(studentViewModels);
         }
 
         [HttpGet]
@@ -43,6 +53,10 @@ namespace WebApplication1.Controllers
             }
             return View(student);
         }
+
+
+
+
 
     }
 }
